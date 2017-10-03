@@ -12,6 +12,7 @@
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/jquery-2.2.2.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/jquery.fullPage.min.js');
     Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/script.js');
+    CJSCore::Init(array('scripts')); // Инициализация скриптов в /js/include.php
     ?>
     <link rel="icon" href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH?>/img/favicon.ico" type="image/x-icon">
