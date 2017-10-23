@@ -1,0 +1,1 @@
+Техподдержка: <a href="http://rarusweb.ru" target="_blank" rel="nofollow">rarusweb.ru</a>
