@@ -8,7 +8,7 @@
     
     /local/php_interface/include - Подключаемые файлы 
     
-    /local/include - <i>Включаемые области</i>
+    /local/include - Включаемые области
     
     /local/css/
     
