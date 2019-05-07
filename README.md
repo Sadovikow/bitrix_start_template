@@ -30,5 +30,5 @@ Start snippets
 ```
 git clone https://github.com/Sadovikow/bitrix_start_template.git && \
 mv bitrix_start_template/local/ ./ &&  \
-rm -rf local/
+rm -rf bitrix_start_template/
 ```
