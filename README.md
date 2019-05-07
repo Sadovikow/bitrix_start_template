@@ -29,6 +29,6 @@ Start snippets
 
 ```
 git clone https://github.com/Sadovikow/bitrix_start_template.git && \
-mv bitrix_start_template/ ./ &&  \
+mv bitrix_start_template/. ./ &&  \
 rm -rf bitrix_start_template/
 ```
