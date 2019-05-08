@@ -14,7 +14,8 @@
         ),
          'slick' => array(
             'js' => '/local/js/slick.min.js',
-            'rel' => array(),
+            'css' => '/local/js/slick.css',
+            'rel' => array(), 
         ),
          'script' => array(
             'js' => '/local/js/script.js',
@@ -23,7 +24,7 @@
         'scripts' => array(
             'rel' => array(
                 'jquery',
-                'slick',
+                 'slick',
                 'phone_mask',
                 'phone_mask_value',
                 'script'
