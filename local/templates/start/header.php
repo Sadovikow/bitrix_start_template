@@ -18,12 +18,12 @@
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-96x96.png" sizes="96x96">
         <link rel="apple-touch-icon-precomposed" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-96x96.png">
-        <meta name=viewport content="width=device-width, initial-scale=1">
+        <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="format-detection" content="telephone=no">
         <meta property="og:type" content="website">
         <meta property="og:url" content="https://www.yoursite.ru/">
         <meta property="og:title" content="Your site">
-        <meta property="og:description" content="Your Description">
+        <meta property="og:description" content="<?$APPLICATION->ShowProperty('description');?>">
         <meta property="og:image" content="https://www.yoursite.ru/logo.png">
     </head>
     
