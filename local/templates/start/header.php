@@ -10,8 +10,9 @@
         <title><?$APPLICATION->ShowTitle()?></title>
         <?$APPLICATION->ShowHead();
         use Bitrix\Main\Page\Asset;
-        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/script.js');
-        CJSCore::Init(array('scripts')); // Scripts in /js/include.php 
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/functions.js');
+        Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/script.js');
+        CJSCore::Init(array('scripts')); // /js/include.php (slick, masks, default functions)
         ?>
         <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/mobile.css?<?=rand(9,912321319);?>">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-16x16.png" sizes="16x16">
