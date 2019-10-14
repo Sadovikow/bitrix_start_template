@@ -50,4 +50,10 @@ function num2word($num, $words)
         }
     }
 }
+
+// Канонические ссылки для постраничной навигации. Устраняем дубли страниц по SEO
+if ($_REQUEST['PAGEN_1']) {
+    global $APPLICATION;
+    $APPLICATION->AddHeadString('<link href="https://'.$_SERVER['SERVER_NAME'].$APPLICATION->sDirPath.'" rel="canonical" />',true);
+}
 ?>
