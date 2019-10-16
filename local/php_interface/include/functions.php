@@ -51,9 +51,19 @@ function num2word($num, $words)
     }
 }
 
-// Канонические ссылки для постраничной навигации. Устраняем дубли страниц по SEO
-if ($_REQUEST['PAGEN_1']) {
-    global $APPLICATION;
-    $APPLICATION->AddHeadString('<link href="https://'.$_SERVER['SERVER_NAME'].$APPLICATION->sDirPath.'" rel="canonical" />',true);
-}
+/* SEO CANONICAL (Проставление канонических ссылок в каталогах и других ссылках) */
+    $urlname = $APPLICATION->sDirPath;
+
+    if(strpos($urlname, 'filter/clear/apply/')) {
+        $urlname = str_replace('filter/clear/apply/', "", $urlname);
+    }
+    else {
+        $urlname = $urlname;
+    }
+     
+    if ($_REQUEST['PAGEN_1'] || $_REQUEST['show'] || $_REQUEST['sort'] || $_REQUEST['del_filter'] || strpos($APPLICATION->sDirPath, 'filter/clear/apply/')) {
+        global $APPLICATION;
+        $APPLICATION->AddHeadString('<link href="https://'.$_SERVER['SERVER_NAME'].$urlname.'" rel="canonical" />',true);
+    }
+/* SEO CANONICAL */
 ?>
