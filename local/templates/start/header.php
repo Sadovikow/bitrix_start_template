@@ -1,5 +1,8 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?IncludeTemplateLangFile(__FILE__);?>
+<?IncludeTemplateLangFile(__FILE__);
+define("SITE_SERVER_PROTOCOL", (CMain::IsHTTPS()) ? "https://" : "http://"); // Переменная определяет протокол, по которому работает ваш сайт
+$curPage = $APPLICATION->GetCurPage(); // Получаем текущий адрес страницы
+?>
 <!DOCTYPE HTML>
 <html xmlns:og="http://ogp.me/ns#" lang="<?=LANGUAGE_ID;?>">
     <head>
@@ -13,6 +16,7 @@
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/functions.js');
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/script.js');
         CJSCore::Init(array('scripts')); // /js/include.php (slick, masks, default functions)
+        CJSCore::Init(array("fx"));
         ?>
         <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/mobile.css?<?=rand(9,912321319);?>">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-16x16.png" sizes="16x16">
@@ -22,7 +26,7 @@
         <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <meta name="format-detection" content="telephone=no">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://www.yoursite.ru/">
+        <meta property="og:url" content="<?= SITE_SERVER_PROTOCOL . SITE_SERVER_NAME . $curPage ?>">
         <meta property="og:title" content="Your site">
         <meta property="og:description" content="<?$APPLICATION->ShowProperty('description');?>">
         <meta property="og:image" content="https://www.yoursite.ru/logo.png">
