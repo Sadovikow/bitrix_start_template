@@ -51,6 +51,73 @@ function num2word($num, $words)
     }
 }
 
+
+/**
+ * Colored dump
+ *
+ * @param   $array
+ * @param   $opened
+ * @param   $id
+ * @param   $all
+ *
+ * @return  mixed
+ */
+function cdump($array, $opened = true, $id = false, $all = false)
+{
+    global $USER;
+    if (($USER->GetID() == 1) || ($all == true) || $USER->GetID() == $id) {
+        coloredPrint($array, $opened);
+    }
+}
+
+function coloredPrint($array, $opened = true)
+{
+    if ($opened)
+        $opened = ' open';
+    if (is_object($array) or is_array($array)) {
+        echo '<div style="font-weight: 500; font-family: Courier New, monospace;">';
+        echo '<details' . $opened . '>';
+        echo '<summary style="font-weight: 700;">';
+        echo (is_object($array)) ? 'Object {' . count((array)$array) . '}' : 'Array [' . count($array) . ']';
+        echo '</summary>';
+        ColoredPrintRec($array, $opened);
+        echo '</details>';
+        echo '</div>';
+    }
+}
+
+function ColoredPrintRec($array, $opened, $margin = 20)
+{
+    if (!is_object($array) && !is_array($array))
+        return;
+
+    foreach ($array as $key => $value) {
+        if (is_object($value) or is_array($value)) {
+            echo '<details style="padding-left:' . $margin . 'px" ' . $opened . '>';
+            echo '<summary style="font-weight: 700;">';
+            echo (is_object($value)) ? $key . '<span style="color: #6e7072">&nbsp;{Object = (' . count((array)$value) . ')}</span>' : $key . '<span style="color: #6e7072">&nbsp;[Array = (' . count($value) . ')]</span>';
+            echo '</summary>';
+            ColoredPrintRec($value, $opened, $margin + 5);
+            echo '</details>';
+        } else {
+            switch (gettype($value)) {
+                case 'string':
+                    $bgc = '#e9837b';
+                    break;
+                case 'double':
+                case 'integer':
+                    $bgc = '#2eae51';
+                    break;
+                case 'boolean':
+                    $bgc = '#cb7829';
+                    break;
+            }
+            echo '<div style="padding-left:' . $margin . 'px">' . $key . ' : <span style="font-weight: 600; color:' . $bgc . '">' . $value . '</span><span style="color: #77b0c2"> (' . gettype($value) . ')</span></div>';
+        }
+    }
+}
+
+
 /* SEO CANONICAL (Проставление канонических ссылок в каталогах и других ссылках) */
     $urlname = $APPLICATION->sDirPath;
 
