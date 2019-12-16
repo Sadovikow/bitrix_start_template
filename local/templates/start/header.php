@@ -27,8 +27,8 @@ $curPage = $APPLICATION->GetCurPage(); // Получаем текущий адр
         <meta name="format-detection" content="telephone=no">
         <meta property="og:type" content="website">
         <meta property="og:url" content="<?= SITE_SERVER_PROTOCOL . SITE_SERVER_NAME . $curPage ?>">
-        <meta property="og:title" content="Your site">
-        <meta property="og:description" content="<?$APPLICATION->ShowProperty('description');?>">
+        <meta property="og:title" content="<? $APPLICATION->ShowProperty("title") ?>">
+        <meta property="og:description" content="<? $APPLICATION->ShowProperty('description'); ?>">
         <meta property="og:image" content="https://www.yoursite.ru/logo.png">
     </head>
     
