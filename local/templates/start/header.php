@@ -29,7 +29,7 @@ $curPage = $APPLICATION->GetCurPage(); // Получаем текущий адр
         <meta property="og:url" content="<?= SITE_SERVER_PROTOCOL . SITE_SERVER_NAME . $curPage ?>">
         <meta property="og:title" content="<? $APPLICATION->ShowProperty("title") ?>">
         <meta property="og:description" content="<? $APPLICATION->ShowProperty('description'); ?>">
-        <meta property="og:image" content="https://www.yoursite.ru/logo.png">
+        <meta property="og:image" content="<?=SITE_SERVER_PROTOCOL.SITE_SERVER_NAME?>/logo.png">
     </head>
     
     <body>
