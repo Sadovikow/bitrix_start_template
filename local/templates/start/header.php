@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?IncludeTemplateLangFile(__FILE__);
-define("SITE_SERVER_PROTOCOL", (CMain::IsHTTPS()) ? "https://" : "http://"); // Переменная определяет протокол, по которому работает ваш сайт
-$curPage = $APPLICATION->GetCurPage(); // Получаем текущий адрес страницы
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+use Bitrix\Main\Localization\Loc;
+
+Loc::loadMessages(__FILE__);
 ?>
 <!DOCTYPE HTML>
 <html xmlns:og="http://ogp.me/ns#" lang="<?=LANGUAGE_ID;?>">
