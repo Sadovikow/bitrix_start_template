@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Localization\Loc;
+use Bitrix\Main\Page\Asset;
 
 Loc::loadMessages(__FILE__);
 ?>
@@ -11,14 +12,14 @@ Loc::loadMessages(__FILE__);
         <![endif]-->
         <meta charset="UTF-8">
         <title><?$APPLICATION->ShowTitle()?></title>
-        <?$APPLICATION->ShowHead();
-        use Bitrix\Main\Page\Asset;
+        <?
+        $APPLICATION->ShowHead();
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/functions.js');
         Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/script.js');
         CJSCore::Init(array('scripts')); // /js/include.php (slick, masks, default functions)
         CJSCore::Init(array("fx"));
         ?>
-        <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/mobile.css?<?=rand(9,912321319);?>">
+        <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/mobile.css">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="<?=SITE_TEMPLATE_PATH?>/img/favicon-96x96.png" sizes="96x96">
