@@ -3,6 +3,9 @@ use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Page\Asset;
 
 Loc::loadMessages(__FILE__);
+
+define("SITE_SERVER_PROTOCOL", (CMain::IsHTTPS()) ? "https://" : "http://"); // Переменная определяет протокол, по которому работает ваш сайт
+$curPage = $APPLICATION->GetCurPage(); // Получаем текущий адрес страницы
 ?>
 <!DOCTYPE HTML>
 <html xmlns:og="http://ogp.me/ns#" lang="<?=LANGUAGE_ID;?>">
